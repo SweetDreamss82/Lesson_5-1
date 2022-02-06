@@ -26,11 +26,11 @@
 }
 
 .wrapper {
+	max-width: 1200px;
 	font-family: "TrebuchetMS", sans-serif;
 	line-height: 1.5;
-	max-width: 1200px;
-	margin: 0 auto;
 	font-size: 20px;
+	margin: 0 auto;
 }
 
 .header-top__title,
@@ -52,7 +52,7 @@ li {
 	padding-bottom: 20px;
 }
 
-#container > li {
+#container>li {
 	margin-left: 40px;
 	color: blue;
 }
@@ -89,7 +89,7 @@ span {
 
 .text__example {
 	color: #0000ff;
-	padding: 30px 0;
+	padding-top: 30px;
 }
 
 .text,
@@ -113,8 +113,7 @@ span {
 }
 
 .items {
-	padding: 15px 0;
-	margin: 50px 65px;
+	margin: 20px 150px;
 }
 
 .item__text {
