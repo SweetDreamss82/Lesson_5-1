@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson 5</title>
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header-top">
+				<h1 class="header-top__title">HTML & CSS: как не надо</h1>
+				<nav class="header-top__nav">
+					<ul id="container">
+						<ul>
+							<li>
+								<p class="header-top__nav-text">На этой странице:</p>
+							</li>
+						</ul>
+						<li>
+							<a href="#content">
+								1. Не задавайте текстовым блокам фиксированную высоту
+							</a>
+						</li>
+						<li>
+							<a href="#content-2">
+								2. Не используйте <span>absolute</span> для позиционирования текстовых блоков
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main class="main">
+			<div class="container">
+				<h2 class="title">
+					1. Фиксированная высота и <span>absolute</span> для текстовых блоков
+				</h2>
+				<h3 class="subject" id="content">Не задавайте текстовым блокам фиксированную высоту
+				</h3>
+				<h4 class="subtitle sub">Почему?</h4>
+				<p class="text">
+					При увеличении количества текста он вывалится наружу и может наложиться на нижележащие элементы.
+				</p>
+				<h4 class="subtitle">Как это увидеть? </h4>
+				<p class="text__example">
+					Можно отредактировать исходный <span>HTML</span>, а можно выполнить в консоли браузера такую команду:
+				</p>
+				<img class="img" src="img/2.1.jpg" alt="Пример">
+				<p class="text">
+					После этого вы сможете отредактировать любой текст на странице.
+				</p>
+				<p class="text__example">Добавим текст:</p>
+				<img class="img" src="img/2.2.jpg" alt="Пример">
+				<p class="parting">
+					При фиксированной высоте текст не может растянуть блок и вываливается.
+				</p>
+				<h4 class="subtitle">А как надо?</h4>
+				<p class="text__example">
+					Решение зависит от того, что нужно сделать. Если у блока по макету есть минимальная высота, но контента
+					недостаточно, чтобы его растянуть, используйте <span>min-height</span>:
+				</p>
+				<img class="img" src="img/3.1.jpg" alt="Пример">
+				<img class="img" src="img/3.2.jpg" alt="Пример">
+				<p class="text">
+					<span>min-height</span> позволит добиться соответствия макету, а при добавлении контента блок просто вырастет вниз.
+				</p>
+				<p class="text">
+					Ещё это может быть полезно как временное решение, чтобы разложить блоки по макету, до того, как будет
+					стилизовано
+					содержимое, после этого <span>min-height</span> убирается.
+				</p>
+				<p class="text">
+					Если же контента достаточно, <span>min-height</span> не нужен, достаточно задать стили для текста и <span>padding</span> для блока, и
+					его
+					размеры будут определяться содержимым.Если у блока есть явные границы, <span>padding</span> нужно задавать со всех сторон,
+					чтобы при добавлении текста он не упёрся в края:
+				</p>
+				<p class="text__example">
+					Если у блока есть явные границы, <span>padding</span> нужно задавать со всех сторон, чтобы при добавлении текста он не
+					упёрся в края:
+				</p>
+				<div class="items">
+					<p class="item__text"><img class="item__img" src="img/3.3.jpg" alt="Пример">
+						-Подопытная кнопка с минимальной шириной и высотой
+					</p>
+					<p class="item__text">Изменим текст:</p>
+					<p class="item__text"><img class="item__img" src="img/3.4.jpg" alt="Пример">
+						-Не хватает паддингов слева и справа
+					</p>
+					<p class="item__text"><img class="item__img" src="img/3.5.jpg" alt="Пример">
+						-Не хватает вертикальных паддингов
+					</p>
+					<p class="item__text"><img class="item__img" src="img/3.6.jpg" alt="Пример">
+						-Все паддинги на месте, добавление текста ничего не ломает
+					</p>
+				</div>
+				<h3 class="subject" id="content-2">
+					2. Не используйте <span>absolute</span> для позиционирования текстовых блоков
+				</h3>
+				<h4 class="subtitle sub">Почему?</h4>
+				<p class="text">
+					При абсолютном позиционировании блок не влияет на размеры родителя. При увеличении количества текста он не
+					сможет
+					растянуть родительский блок и вывалится наружу.
+				</p>
+				<h4 class="subtitle">Как это увидеть?</h4>
+				<p class="text__example">
+					Как и в предыдущем случае, можно отредактировать исходный HTML или использовать команду в консоли:
+				</p>
+				<img class="img" src="img/4.1.jpg" alt="Пример">
+				<p class="text">
+					После чего добавить текст в интересующий элемент.
+				</p>
+				<img class="img" src="img/4.2.jpg" alt="Пример">
+				<p class="parting">
+					Абсолютно спозиционированный элемент не может растянуть родительский блок.
+				</p>
+				<h4 class="subtitle">А как надо?</h4>
+				<p class="text__example">
+					В этом случае лучше перенести <span>position:absolute</span> на картинку и добавить <span>min-height</span>, чтобы блок не схлопывался
+					по
+					высоте текста (иначе может вывалиться картинка):
+				</p>
+				<img class="img" src="img/5.1.jpg" alt="Пример">
+				<img class="img" src="img/5.2.jpg" alt="Пример">
+				<p class="parting">
+					Проверяем с коротким текстом: <span>min-height</span> не даёт блоку схлопнуться.
+				</p>
+				<img class="img" src="img/5.3.jpg" alt="Пример">
+				<p class="parting">
+					Проверяем с длинным текстом: текст растягивает блок, и ничего не выпадает.
+				</p>
+			</div>
+		</main>
+		<footer class="footer">
+			<img class="footer__img" src="img/6.jpg" alt="Пример" width="1200">
+		</footer>
+	</div>
+</body>
+
+</html>
